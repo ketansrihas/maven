@@ -32,6 +32,35 @@
 
 <build>
 <plugins>
+
+			<plugin>
+				<groupId>com.github.ekryd.echo-maven-plugin</groupId>
+				<artifactId>echo-maven-plugin</artifactId>
+				<version>1.2.0</version>
+				<executions>
+					<execution>
+						<id>package</id>
+						<phase>package</phase>
+						<goals>
+							<goal>echo</goal>
+						</goals>
+						<configuration>
+							<message>JAR has been created for ${environment}</message>
+						</configuration>
+					</execution>
+					<execution>
+						<id>install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>echo</goal>
+						</goals>
+						<configuration>
+							<message>JAR has been installed in Local Repository</message>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 <plugin>
    <groupId>org.apache.maven.plugins</groupId>
    <artifactId>maven-deploy-plugin</artifactId>
@@ -60,6 +89,7 @@
       <skipStaging>true</skipStaging>
    </configuration>
 </plugin>
+
 </plugins>
 </build>
 
